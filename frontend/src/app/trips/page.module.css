@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 40px 24px;
+  width: 100%;
 }
 
 .pageHeader h1 {

@@ -7,21 +7,5 @@
 
 .content {
   flex: 1;
-  padding: 40px;
   width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-  transition: padding var(--transition-smooth);
-}
-
-@media (max-width: 1024px) {
-  .content {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 768px) {
-  .content {
-    padding: 16px;
-  }
 }
