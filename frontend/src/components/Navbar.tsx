@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import styles from "./Navbar.module.css";
 import LoginModal from "./LoginModal";
+import SearchModal from "./SearchModal";
 
 interface NavbarProps {
   onSearchChange?: (val: string) => void;
@@ -33,6 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
   const { theme, toggleTheme, user, logoutUser, favorites } = useApp();
   
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -98,17 +100,11 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
 
         {/* Search, Favorites, Theme, Auth actions (Right) */}
         <div className={styles.actions}>
-          {/* Global search in navbar */}
-          <form onSubmit={handleSearchSubmit} className={styles.searchForm}>
-            <Search className={styles.searchIcon} size={16} />
-            <input
-              type="text"
-              placeholder="ค้นหาจุดหมาย..."
-              value={searchValue}
-              onChange={handleInputChange}
-              className={styles.searchInput}
-            />
-          </form>
+          {/* Clickable search triggers modal */}
+          <button className={styles.searchIconBtn} onClick={() => setShowSearchModal(true)} title="ค้นหาจุดหมาย">
+            <Search size={16} className={styles.searchIcon} />
+            <span className={styles.searchText}>ค้นหาจุดหมาย...</span>
+          </button>
 
           {/* Currency */}
           <div className={styles.currency}>
@@ -148,6 +144,11 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
       {/* Login Modal Overlay */}
       {showLoginModal && (
         <LoginModal onClose={() => setShowLoginModal(false)} />
+      )}
+
+      {/* Search Modal Overlay */}
+      {showSearchModal && (
+        <SearchModal onClose={() => setShowSearchModal(false)} />
       )}
     </nav>
   );
