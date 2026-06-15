@@ -1,0 +1,38 @@
+.layoutContainer {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+.mainPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: 280px; /* Offset fixed sidebar */
+  transition: margin-left var(--transition-smooth);
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  transition: padding var(--transition-smooth);
+}
+
+@media (max-width: 1024px) {
+  .mainPanel {
+    margin-left: 80px;
+  }
+  
+  .content {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+}

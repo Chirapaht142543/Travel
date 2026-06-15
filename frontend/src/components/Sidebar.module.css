@@ -1,0 +1,228 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 24px 32px 24px;
+  z-index: 100;
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  border-left: none;
+  background: rgba(10, 11, 16, 0.85);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  transition: all var(--transition-smooth);
+}
+
+/* Logo Design */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.moonLogo {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--accent) 0%, #1e1b4b 100%);
+  border-radius: var(--radius-round);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(220, 165, 107, 0.3);
+}
+
+.crescent {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-round);
+  top: 4px;
+  right: -4px;
+  background: #0a0b10; /* Match background to carve out crescent */
+  transition: background-color var(--transition-smooth);
+}
+
+[data-theme="light"] .crescent {
+  background: #f8fafc;
+}
+
+.brandName h2 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.brandName span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* Nav Menu */
+.navMenu {
+  flex: 1;
+}
+
+.navMenu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(4px);
+}
+
+.active {
+  color: #000;
+  background: linear-gradient(135deg, var(--accent) 0%, #dd7929 100%) !important;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(220, 165, 107, 0.25);
+  transform: translateX(4px);
+}
+
+.active .icon {
+  color: #000;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  transition: color var(--transition-fast);
+}
+
+.navLink:hover .icon {
+  color: var(--accent-hover);
+}
+
+.label {
+  letter-spacing: 0.5px;
+}
+
+/* Footer Controls */
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 24px;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.themeToggle:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+}
+
+.sunIcon {
+  color: #fbbf24;
+  animation: rotate 10s linear infinite;
+}
+
+.moonIcon {
+  color: #38bdf8;
+}
+
+/* Help 24/7 Widget */
+.helpWidget {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: rgba(220, 165, 107, 0.08);
+  border: 1px dashed rgba(220, 165, 107, 0.2);
+  border-radius: var(--radius-md);
+}
+
+.helpIconContainer {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-round);
+  background: rgba(220, 165, 107, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.helpInfo h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.helpInfo p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+    padding: 30px 12px;
+    align-items: center;
+  }
+  
+  .brandName, .label, .themeText, .helpInfo {
+    display: none;
+  }
+  
+  .logoContainer {
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  
+  .helpWidget {
+    justify-content: center;
+    padding: 12px;
+  }
+}
