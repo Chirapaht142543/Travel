@@ -124,10 +124,6 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
             )}
           </Link>
 
-          {/* Theme Toggler */}
-          <button className={styles.themeToggle} onClick={toggleTheme} aria-label="Toggle Theme">
-            {theme === "dark" ? <Sun size={18} className={styles.sunIcon} /> : <Moon size={18} className={styles.moonIcon} />}
-          </button>
 
           {/* User Auth Profile */}
           {user ? (
