@@ -82,51 +82,42 @@
   text-transform: uppercase;
 }
 
-/* Nav links (Center) */
 .navLinks {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 24px;
 }
 
 .navLink {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
+  position: relative;
+  padding: 8px 4px;
   color: var(--text-muted);
   text-decoration: none;
-  border-radius: var(--radius-md);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  transition: all var(--transition-fast);
+  letter-spacing: 0.5px;
+  transition: color var(--transition-fast);
 }
 
 .navLink:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
 }
 
 .active {
-  color: #000 !important;
-  background: linear-gradient(135deg, var(--accent) 0%, #dd7929 100%) !important;
+  color: var(--accent) !important;
   font-weight: 600;
-  box-shadow: 0 4px 10px rgba(220, 165, 107, 0.2);
 }
 
-.active .icon {
-  color: #000;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  color: var(--accent);
-  transition: color var(--transition-fast);
-}
-
-.navLink:hover .icon {
-  color: var(--accent-hover);
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 0 8px rgba(220, 165, 107, 0.6);
 }
 
 /* Actions (Right) */

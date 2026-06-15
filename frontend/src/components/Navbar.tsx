@@ -52,11 +52,10 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
   };
 
   const menuItems = [
-    { label: "สำรวจ (Explore)", icon: <Compass size={18} />, path: "/" },
-    { label: "ทริปของฉัน (Trips)", icon: <Briefcase size={18} />, path: "/trips" },
-    { label: "ที่พัก (Stays)", icon: <Hotel size={18} />, path: "/?tab=stay" },
-    { label: "ประสบการณ์", icon: <Map size={18} />, path: "/?tab=experience" },
-    { label: "แพ็กเกจ (Packages)", icon: <Package size={18} />, path: "/?tab=package" },
+    { label: "ทริปของฉัน", path: "/trips" },
+    { label: "ที่พัก", path: "/?tab=stay" },
+    { label: "ประสบการณ์", path: "/?tab=experience" },
+    { label: "แพ็กเกจ", path: "/?tab=package" },
   ];
 
   return (
@@ -91,7 +90,6 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
                 className={`${styles.navLink} ${isActive ? styles.active : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
-                <span className={styles.icon}>{item.icon}</span>
                 <span>{item.label}</span>
               </Link>
             );
