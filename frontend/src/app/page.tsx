@@ -80,12 +80,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* API status subtle banner */}
-      {apiStatus && (
-        <div className={styles.statusBanner}>
-          <span>🟢 Connected to {apiStatus.database} Database & {apiStatus.cache} Cache</span>
-        </div>
-      )}
+
 
       {/* HERO SECTION */}
       <section className={styles.heroSection}>
