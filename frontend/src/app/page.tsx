@@ -79,9 +79,7 @@ export default function Home() {
   const displayedPopular = popularPackages.length > 0 ? popularPackages : places.filter(p => p.type === "stay");
 
   return (
-    <div className={styles.container}>
-
-
+    <div className={styles.pageWrapper}>
       {/* HERO SECTION */}
       <section className={styles.heroSection}>
         <div className={styles.heroOverlay}></div>
@@ -91,43 +89,46 @@ export default function Home() {
           style={{ backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80')` }}
         ></div>
         
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
-            ออกเดินทางสู่โลกกว้าง<br />
-            เก็บเกี่ยว<span>ช่วงเวลาที่มีค่า</span>
-          </h1>
-          <p className={styles.heroSubtitle}>
-            ประสบการณ์การเดินทางที่ออกแบบมาเพื่อคุณ ค้นพบดีลพิเศษสำหรับที่พัก เที่ยวบิน และแพ็กเกจทัวร์ทั่วโลก
-          </p>
-          
-          <div className={styles.heroActions}>
-            <button className={`${styles.watchBtn} glass`}>
-              <span className={styles.playIconContainer}><Play size={14} fill="currentColor" /></span>
-              <span>ชมแรงบันดาลใจ (Watch Video)</span>
-            </button>
+        <div className={styles.heroInner}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>
+              ออกเดินทางสู่โลกกว้าง<br />
+              เก็บเกี่ยว<span>ช่วงเวลาที่มีค่า</span>
+            </h1>
+            <p className={styles.heroSubtitle}>
+              ประสบการณ์การเดินทางที่ออกแบบมาเพื่อคุณ ค้นพบดีลพิเศษสำหรับที่พัก เที่ยวบิน และแพ็กเกจทัวร์ทั่วโลก
+            </p>
+            
+            <div className={styles.heroActions}>
+              <button className={`${styles.watchBtn} glass`}>
+                <span className={styles.playIconContainer}><Play size={14} fill="currentColor" /></span>
+                <span>ชมแรงบันดาลใจ (Watch Video)</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* Floating Card for Cappadocia */}
-        <div className={`${styles.floatingCappadocia} glass`}>
-          <img 
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=120&q=80" 
-            alt="Cappadocia" 
-            className={styles.cappaThumb}
-          />
-          <div className={styles.cappaInfo}>
-            <h4>Cappadocia</h4>
-            <p>Turkey</p>
-            <div className={styles.cappaRating}>
-              <Star size={12} fill="var(--accent)" color="var(--accent)" />
-              <span>4.9 (128)</span>
+          {/* Floating Card for Cappadocia */}
+          <div className={`${styles.floatingCappadocia} glass`}>
+            <img 
+              src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=120&q=80" 
+              alt="Cappadocia" 
+              className={styles.cappaThumb}
+            />
+            <div className={styles.cappaInfo}>
+              <h4>Cappadocia</h4>
+              <p>Turkey</p>
+              <div className={styles.cappaRating}>
+                <Star size={12} fill="var(--accent)" color="var(--accent)" />
+                <span>4.9 (128)</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SEARCH PANEL WIDGET */}
-      <section className={`${styles.searchWidget} glass`}>
+      <div className={styles.container}>
+        {/* SEARCH PANEL WIDGET */}
+        <section className={`${styles.searchWidget} glass`}>
         {/* Tabs Headers */}
         <div className={styles.widgetTabs}>
           <button 
@@ -442,6 +443,8 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      </div> {/* close styles.container */}
 
       {/* OVERLAY MODALS */}
       {selectedPlace && (
