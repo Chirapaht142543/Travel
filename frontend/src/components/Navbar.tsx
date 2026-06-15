@@ -69,6 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
   };
 
   const menuItems = [
+    { label: "หน้าหลัก", path: "/" },
     { label: "ทริปของฉัน", path: "/trips" },
     { label: "ที่พัก", path: "/?tab=stay" },
     { label: "ประสบการณ์", path: "/?tab=experience" },
@@ -99,7 +100,13 @@ const Navbar: React.FC<NavbarProps> = ({ onSearchChange }) => {
         {/* Navigation links (Center) */}
         <div className={`${styles.navLinks} ${menuOpen ? styles.navLinksActive : ""}`}>
           {menuItems.map((item, index) => {
-            const isActive = pathname === item.path || (item.path.includes("tab") && pathname === "/" && typeof window !== "undefined" && window.location.search.includes(item.path.split("=")[1]));
+            const isHome = item.path === "/";
+            const hasQuery = typeof window !== "undefined" && window.location.search && window.location.search.includes("tab");
+            
+            const isActive = isHome 
+              ? (pathname === "/" && !hasQuery)
+              : (pathname === item.path || (item.path.includes("tab") && pathname === "/" && typeof window !== "undefined" && window.location.search.includes(item.path.split("=")[1])));
+            
             return (
               <Link 
                 key={index} 
